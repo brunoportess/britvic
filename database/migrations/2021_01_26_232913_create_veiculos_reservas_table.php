@@ -21,7 +21,7 @@ class CreateVeiculosReservasTable extends Migration
             $table->date('data_fim');
             $table->timestamps();
             $table->softDeletes();
-            $table->unique(['veiculo_id', 'usuario_id', 'data_inicio']);
+            $table->unique(['veiculo_id', 'usuario_id', 'data_inicio', 'deleted_at'], 'unique_reserva');
         });
     }
 

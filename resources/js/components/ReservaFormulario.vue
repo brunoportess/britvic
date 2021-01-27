@@ -122,7 +122,7 @@ export default {
             dados.veiculo_id = parseInt(dados.veiculo_id)
             console.log(dados)
             axios.post('/api/reservas', dados).then(response => {
-                window.location.replace("reservas");
+                window.location.replace("/reservas");
             }).catch(error => {
                 console.error(error)
             })

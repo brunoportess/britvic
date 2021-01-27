@@ -4443,7 +4443,7 @@ __webpack_require__.r(__webpack_exports__);
       dados.veiculo_id = parseInt(dados.veiculo_id);
       console.log(dados);
       axios.post('/api/reservas', dados).then(function (response) {
-        window.location.replace("reservas");
+        window.location.replace("/reservas");
       })["catch"](function (error) {
         console.error(error);
       });

@@ -38,9 +38,13 @@ class VeiculosController
             'marca' => 'required',
             'modelo' => 'required',
             'ano' => 'required|max:4',
-            'placa' => 'required|max:8|unique:veiculos',
+            'placa' => ['required', 'max:8',
+                Rule::unique('veiculos')->where(function ($query) use ( $request) {
+                    $query->whereNull('deleted_at')->where('placa', '=', $request->placa);
+                })]
         ]);
         $dados = $request->all();
+        $dados['usuario_id'] = auth()->user()->id;
         $this->veiculosService->salvar($dados);
         return Redirect::route('veiculos-index')->with('success','Veículo adicionado com sucesso!');
     }

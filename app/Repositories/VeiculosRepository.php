@@ -23,9 +23,12 @@ class VeiculosRepository extends BaseRepository implements IVeiculosRepository
 
     function listarDisponiveis($inicio, $fim)
     {
-        // VERIFICA SE A DATA DE INICIO DE LOCAÇÃO SELECIONADA O VEICULO NAO ESTEJA ALUGADO PARA OUTRO USUARIO
+        // VERIFICA SE A DATA DE INICIO OU FIM DE LOCAÇÃO SELECIONADA O VEICULO NAO ESTEJA ALUGADO PARA OUTRO USUARIO
         return $this->veiculos->whereDoesntHave('reservas', function (Builder $reserva) use ($inicio, $fim) {
-            $reserva->where('data_inicio', '<=', $inicio)->where('data_fim', '>=', $inicio);
+            $reserva->whereRaw("((data_inicio <= '{$inicio}' AND data_fim >= '{$inicio}')
+            OR  (data_inicio <= '{$fim}' AND data_fim >= '{$fim}')
+            OR  (data_inicio >= '{$inicio}' AND data_fim <= '{$fim}')
+            )");
         })->get();
     }
 }
