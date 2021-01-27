@@ -8,12 +8,12 @@
         @endif
     </div>
     <div>
-        <h1 class="h1">Usuários</h1>
+        <h1 class="h1">Reservas</h1>
     </div>
     <div class="text-right">
-        <a name="" id="" class="btn btn-primary text-right" href="/usuarios/formulario" role="button">NOVO USUÁRIO</a>
+        <a name="" id="" class="btn btn-primary text-right" href="/reservas/formulario" role="button">NOVA RESERVA</a>
     </div>
     <div>
-        <lista-usuarios />
+        <lista-reservas />
     </div>
 @endsection

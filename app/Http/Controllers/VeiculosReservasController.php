@@ -4,32 +4,33 @@
 namespace App\Http\Controllers;
 
 
+use App\Services\Interfaces\IVeiculosReservasService;
 use App\Services\Interfaces\IVeiculosService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
 
-class VeiculosController
+class VeiculosReservasController
 {
     /**
-     * @var IVeiculosService
+     * @var IVeiculosReservasService
      */
-    private $veiculosService;
+    private $reservasService;
 
-    public function __construct(IVeiculosService $veiculosService)
+    public function __construct(IVeiculosReservasService $reservasService)
     {
-        $this->veiculosService = $veiculosService;
+        $this->reservasService = $reservasService;
     }
 
     public function index()
     {
         //dd(auth()->user()->id);
-        return view('veiculos.index');
+        return view('veiculos.reservas.index');
     }
 
     public function criar()
     {
-        return view('veiculos.cadastrar');
+        return view('veiculos.reservas.cadastrar');
     }
 
     public function salvar(Request $request)
@@ -41,14 +42,14 @@ class VeiculosController
             'placa' => 'required|max:8|unique:veiculos',
         ]);
         $dados = $request->all();
-        $this->veiculosService->salvar($dados);
-        return Redirect::route('veiculos-index')->with('success','Veículo adicionado com sucesso!');
+        $this->reservasService->salvar($dados);
+        Redirect::route('reservas-index')->with('success','Veículo adicionado com sucesso!');
     }
 
     public function editar($id)
     {
-        $item = $this->veiculosService->listarPorId($id);
-        return view('veiculos.editar', compact('item'));
+        $item = $this->reservasService->listarPorId($id);
+        return view('veiculos.reservas.editar', compact('item'));
     }
 
     public function atualizar($id, Request $request)
@@ -64,13 +65,13 @@ class VeiculosController
                     })]
         ]);
         $dados = $request->all();
-        $this->veiculosService->atualizar($id, $dados);
-        return Redirect::route('veiculos-index')->with('success','Veículo atualizado com sucesso!');
+        $this->reservasService->atualizar($id, $dados);
+        Redirect::route('reservas-index')->with('success','Veículo atualizado com sucesso!');
     }
 
     public function deletar($id)
     {
-        $this->veiculosService->deletar($id);
-        return Redirect::route('veiculos-index')->with('success','Veículo deletado com sucesso!');
+        $this->reservasService->deletar($id);
+        Redirect::route('reservas-index')->with('success','Veículo deletado com sucesso!');
     }
 }

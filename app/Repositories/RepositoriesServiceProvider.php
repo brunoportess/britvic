@@ -12,5 +12,6 @@ class RepositoriesServiceProvider extends  ServiceProvider
     {
         $this->app->bind(Interfaces\IUsuariosRepository::class, UsuariosRepository::class);
         $this->app->bind(Interfaces\IVeiculosRepository::class, VeiculosRepository::class);
+        $this->app->bind(Interfaces\IVeiculosReservasRepository::class, VeiculosReservasRepository::class);
     }
 }

@@ -16,7 +16,7 @@ class CreateUsuariosTable extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
             $table->string('nome', 100);
-            $table->integer('cpf');
+            $table->string('cpf', 14);
             $table->bigInteger('usuario_id')->unsigned();
             $table->tinyInteger('ativo')->default(1);
             $table->softDeletes();

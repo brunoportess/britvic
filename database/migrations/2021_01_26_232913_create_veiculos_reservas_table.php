@@ -15,8 +15,8 @@ class CreateVeiculosReservasTable extends Migration
     {
         Schema::create('veiculos_reservas', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('veiculo_id');
-            $table->bigInteger('usuario_id');
+            $table->bigInteger('veiculo_id')->unsigned();
+            $table->bigInteger('usuario_id')->unsigned();
             $table->date('data_inicio');
             $table->date('data_fim');
             $table->timestamps();

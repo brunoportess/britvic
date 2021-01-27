@@ -12,5 +12,6 @@ class ServicesServiceProvider extends  ServiceProvider
     {
         $this->app->bind(Interfaces\IUsuariosService::class, UsuariosService::class);
         $this->app->bind(Interfaces\IVeiculosService::class, VeiculosService::class);
+        $this->app->bind(Interfaces\IVeiculosReservasService::class, VeiculosReservasService::class);
     }
 }

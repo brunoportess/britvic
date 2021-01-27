@@ -4011,6 +4011,200 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaReservas.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaReservas.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "ListaReservas",
+  data: function data() {
+    return {
+      filtro: '',
+      usuarios: [],
+      colunas: [{
+        label: 'Usuário',
+        field: 'nome',
+        sortable: 'nome'
+      }, {
+        label: 'Veículo',
+        field: 'veiculo.marca',
+        sortable: ''
+      }, {
+        label: 'Placa',
+        field: 'veiculo.placa',
+        sortable: ''
+      }, {
+        label: 'Data de entrega',
+        field: 'data_inicio'
+      }, {
+        label: 'Data de devolução',
+        field: 'data_fim'
+      }, {
+        label: 'Ações',
+        field: 'acoes'
+      }]
+    };
+  },
+  mounted: function mounted() {
+    this.buscaVeiculos();
+  },
+  methods: {
+    remover: function remover(id) {
+      axios["delete"]("/api/reservas/".concat(id)).then(function () {
+        alert('Item deletado com sucesso!');
+        location.reload();
+      })["catch"](function (error) {
+        console.error(error);
+      });
+    },
+    buscaVeiculos: function buscaVeiculos() {
+      var _this = this;
+
+      axios.get('/api/reservas').then(function (response) {
+        _this.usuarios = response.data;
+        console.log(_this.usuarios);
+      })["catch"](function (error) {
+        alert('Ocorreu um erro ao buscar os dados!');
+        console.error(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaUsuarios.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaUsuarios.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "ListaUsuarios",
+  data: function data() {
+    return {
+      filtro: '',
+      usuarios: [],
+      colunas: [{
+        label: 'Nome',
+        field: 'nome',
+        sortable: 'nome'
+      }, {
+        label: 'CPF',
+        field: 'cpf',
+        sortable: ''
+      }, {
+        label: 'Cadastrado por',
+        field: 'user.name',
+        sortable: ''
+      }, {
+        label: 'Criado em',
+        field: 'created_at'
+      }, {
+        label: 'Ações',
+        field: 'acoes'
+      }]
+    };
+  },
+  mounted: function mounted() {
+    this.buscaVeiculos();
+  },
+  methods: {
+    remover: function remover(id) {
+      axios["delete"]("/api/usuarios/".concat(id)).then(function () {
+        alert('Item deletado com sucesso!');
+        location.reload();
+      })["catch"](function (error) {
+        console.error(error);
+      });
+    },
+    buscaVeiculos: function buscaVeiculos() {
+      var _this = this;
+
+      axios.get('/api/usuarios').then(function (response) {
+        _this.usuarios = response.data;
+        console.log(_this.usuarios);
+      })["catch"](function (error) {
+        alert('Ocorreu um erro ao buscar usuários!');
+        console.error(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaVeiculos.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaVeiculos.vue?vue&type=script&lang=js& ***!
@@ -4103,6 +4297,154 @@ __webpack_require__.r(__webpack_exports__);
         console.log(_this.veiculos);
       })["catch"](function (error) {
         alert('Ocorreu um erro ao buscar veículos!');
+        console.error(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ReservaFormulario.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ReservaFormulario.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "ReservaFormulario",
+  props: {
+    item: {
+      type: Object,
+      "default": null
+    }
+  },
+  data: function data() {
+    return {
+      reserva: {
+        veiculo_id: '0',
+        usuario_id: '0'
+      },
+      data_inicio: '',
+      data_fim: '',
+      veiculos: [],
+      usuarios: []
+    };
+  },
+  mounted: function mounted() {
+    this.buscaUsuarios();
+
+    if (this.item !== null) {
+      this.data_inicio = this.item.data_inicio;
+      this.data_fim = this.item.data_fim;
+      this.reserva = this.item;
+      this.reserva.usuario_id = this.reserva.usuario_id.toString();
+      this.reserva.veiculo_id = this.reserva.veiculo_id.toString();
+      console.log(this.reserva);
+    }
+  },
+  watch: {
+    data_inicio: {
+      handler: function handler() {
+        if (this.data_inicio !== '' && this.data_fim !== '') {
+          this.buscaVeiculosDisponiveis();
+        }
+      }
+    },
+    data_fim: {
+      handler: function handler() {
+        if (this.data_inicio !== '' && this.data_fim !== '') {
+          this.buscaVeiculosDisponiveis();
+        }
+      }
+    }
+  },
+  computed: {
+    desabilitado: function desabilitado() {
+      return this.data_fim.length === 0 || this.data_inicio.length === 0 || parseInt(this.reserva.usuario_id) === 0 || parseInt(this.reserva.veiculo_id) === 0;
+    }
+  },
+  methods: {
+    buscarDadosReserva: function buscarDadosReserva() {},
+    buscaUsuarios: function buscaUsuarios() {
+      var _this = this;
+
+      axios.get('/api/usuarios').then(function (response) {
+        _this.usuarios = response.data;
+
+        if (_this.usuarios.length === 0) {
+          alert('Favor cadastrar um usuário!');
+        }
+      })["catch"](function (error) {
+        console.error(error);
+      });
+    },
+    buscaVeiculosDisponiveis: function buscaVeiculosDisponiveis() {
+      var _this2 = this;
+
+      var link = this.item !== null ? 'veiculos' : "veiculos-disponiveis/".concat(this.data_inicio, "/").concat(this.data_fim);
+      axios.get("/api/".concat(link)).then(function (response) {
+        _this2.veiculos = response.data;
+      })["catch"](function (error) {
+        console.error(error);
+      });
+    },
+    salvar: function salvar() {
+      var dados = Object.assign({}, this.reserva);
+      dados.data_inicio = this.data_inicio;
+      dados.data_fim = this.data_fim;
+      dados.usuario_id = parseInt(dados.usuario_id);
+      dados.veiculo_id = parseInt(dados.veiculo_id);
+      console.log(dados);
+      axios.post('/api/reservas', dados).then(function (response) {
+        window.location.replace("reservas");
+      })["catch"](function (error) {
         console.error(error);
       });
     }
@@ -39918,6 +40260,84 @@ component.options.__file = "resources/js/components/CustomTable.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/ListaReservas.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/ListaReservas.vue ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _ListaReservas_vue_vue_type_template_id_54645c03_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListaReservas.vue?vue&type=template&id=54645c03&scoped=true& */ "./resources/js/components/ListaReservas.vue?vue&type=template&id=54645c03&scoped=true&");
+/* harmony import */ var _ListaReservas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListaReservas.vue?vue&type=script&lang=js& */ "./resources/js/components/ListaReservas.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _ListaReservas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _ListaReservas_vue_vue_type_template_id_54645c03_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ListaReservas_vue_vue_type_template_id_54645c03_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "54645c03",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ListaReservas.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ListaUsuarios.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/ListaUsuarios.vue ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _ListaUsuarios_vue_vue_type_template_id_e0a1e166_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListaUsuarios.vue?vue&type=template&id=e0a1e166&scoped=true& */ "./resources/js/components/ListaUsuarios.vue?vue&type=template&id=e0a1e166&scoped=true&");
+/* harmony import */ var _ListaUsuarios_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListaUsuarios.vue?vue&type=script&lang=js& */ "./resources/js/components/ListaUsuarios.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _ListaUsuarios_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _ListaUsuarios_vue_vue_type_template_id_e0a1e166_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ListaUsuarios_vue_vue_type_template_id_e0a1e166_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "e0a1e166",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ListaUsuarios.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/ListaVeiculos.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/ListaVeiculos.vue ***!
@@ -39957,6 +40377,45 @@ component.options.__file = "resources/js/components/ListaVeiculos.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/ReservaFormulario.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/ReservaFormulario.vue ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _ReservaFormulario_vue_vue_type_template_id_c97c3e22_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ReservaFormulario.vue?vue&type=template&id=c97c3e22&scoped=true& */ "./resources/js/components/ReservaFormulario.vue?vue&type=template&id=c97c3e22&scoped=true&");
+/* harmony import */ var _ReservaFormulario_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ReservaFormulario.vue?vue&type=script&lang=js& */ "./resources/js/components/ReservaFormulario.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _ReservaFormulario_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _ReservaFormulario_vue_vue_type_template_id_c97c3e22_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ReservaFormulario_vue_vue_type_template_id_c97c3e22_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "c97c3e22",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ReservaFormulario.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/CustomTable.vue?vue&type=script&lang=js&":
 /*!**************************************************************************!*\
   !*** ./resources/js/components/CustomTable.vue?vue&type=script&lang=js& ***!
@@ -39973,6 +40432,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/ListaReservas.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/ListaReservas.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaReservas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListaReservas.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaReservas.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaReservas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ListaUsuarios.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/ListaUsuarios.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaUsuarios_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListaUsuarios.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaUsuarios.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaUsuarios_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/ListaVeiculos.vue?vue&type=script&lang=js&":
 /*!****************************************************************************!*\
   !*** ./resources/js/components/ListaVeiculos.vue?vue&type=script&lang=js& ***!
@@ -39986,6 +40477,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaVeiculos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListaVeiculos.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaVeiculos.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaVeiculos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ReservaFormulario.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/ReservaFormulario.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ReservaFormulario_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ReservaFormulario.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ReservaFormulario.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ReservaFormulario_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -40019,6 +40526,40 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/ListaReservas.vue?vue&type=template&id=54645c03&scoped=true&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/ListaReservas.vue?vue&type=template&id=54645c03&scoped=true& ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaReservas_vue_vue_type_template_id_54645c03_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+/* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaReservas_vue_vue_type_template_id_54645c03_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaReservas_vue_vue_type_template_id_54645c03_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListaReservas.vue?vue&type=template&id=54645c03&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaReservas.vue?vue&type=template&id=54645c03&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ListaUsuarios.vue?vue&type=template&id=e0a1e166&scoped=true&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/ListaUsuarios.vue?vue&type=template&id=e0a1e166&scoped=true& ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaUsuarios_vue_vue_type_template_id_e0a1e166_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+/* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaUsuarios_vue_vue_type_template_id_e0a1e166_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaUsuarios_vue_vue_type_template_id_e0a1e166_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListaUsuarios.vue?vue&type=template&id=e0a1e166&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaUsuarios.vue?vue&type=template&id=e0a1e166&scoped=true&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/ListaVeiculos.vue?vue&type=template&id=036691e8&scoped=true&":
 /*!**********************************************************************************************!*\
   !*** ./resources/js/components/ListaVeiculos.vue?vue&type=template&id=036691e8&scoped=true& ***!
@@ -40032,6 +40573,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaVeiculos_vue_vue_type_template_id_036691e8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaVeiculos_vue_vue_type_template_id_036691e8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListaVeiculos.vue?vue&type=template&id=036691e8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaVeiculos.vue?vue&type=template&id=036691e8&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ReservaFormulario.vue?vue&type=template&id=c97c3e22&scoped=true&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/ReservaFormulario.vue?vue&type=template&id=c97c3e22&scoped=true& ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReservaFormulario_vue_vue_type_template_id_c97c3e22_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+/* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReservaFormulario_vue_vue_type_template_id_c97c3e22_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReservaFormulario_vue_vue_type_template_id_c97c3e22_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ReservaFormulario.vue?vue&type=template&id=c97c3e22&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ReservaFormulario.vue?vue&type=template&id=c97c3e22&scoped=true&");
 
 
 /***/ }),
@@ -40239,6 +40797,266 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaReservas.vue?vue&type=template&id=54645c03&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaReservas.vue?vue&type=template&id=54645c03&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* binding */ render,
+/* harmony export */   "staticRenderFns": () => /* binding */ staticRenderFns
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-3" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", [_vm._v("Buscar...")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.filtro,
+              expression: "filtro"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text", name: "search" },
+          domProps: { value: _vm.filtro },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.filtro = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col-12" },
+      [
+        _c("custom-table", {
+          attrs: {
+            data: _vm.usuarios,
+            columns: _vm.colunas,
+            search: _vm.filtro,
+            itemsPerPage: 10
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "row",
+              fn: function(ref) {
+                var row = ref.row
+                return [
+                  _c("td", [_vm._v(_vm._s(row.usuario.nome))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(row.veiculo.marca) +
+                        " " +
+                        _vm._s(row.veiculo.modelo) +
+                        " " +
+                        _vm._s(row.veiculo.ano)
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(row.veiculo.placa))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(
+                        row.data_inicio
+                          .slice(0, 10)
+                          .split("-")
+                          .reverse()
+                          .join("/")
+                      )
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(
+                        row.data_fim
+                          .slice(0, 10)
+                          .split("-")
+                          .reverse()
+                          .join("/")
+                      )
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { href: "/reservas/" + row.id }
+                      },
+                      [_vm._v("Editar")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-danger",
+                        on: {
+                          click: function($event) {
+                            return _vm.remover(row.id)
+                          }
+                        }
+                      },
+                      [_vm._v("Deletar")]
+                    )
+                  ])
+                ]
+              }
+            }
+          ])
+        })
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaUsuarios.vue?vue&type=template&id=e0a1e166&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaUsuarios.vue?vue&type=template&id=e0a1e166&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* binding */ render,
+/* harmony export */   "staticRenderFns": () => /* binding */ staticRenderFns
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-3" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", [_vm._v("Buscar...")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.filtro,
+              expression: "filtro"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text", name: "search" },
+          domProps: { value: _vm.filtro },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.filtro = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col-12" },
+      [
+        _c("custom-table", {
+          attrs: {
+            data: _vm.usuarios,
+            columns: _vm.colunas,
+            search: _vm.filtro,
+            itemsPerPage: 10
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "row",
+              fn: function(ref) {
+                var row = ref.row
+                return [
+                  _c("td", [_vm._v(_vm._s(row.nome))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(row.cpf))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(row.user.name))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(
+                        row.created_at
+                          .slice(0, 10)
+                          .split("-")
+                          .reverse()
+                          .join("/")
+                      )
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { href: "/usuarios/" + row.id }
+                      },
+                      [_vm._v("Editar")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-danger",
+                        on: {
+                          click: function($event) {
+                            return _vm.remover(row.id)
+                          }
+                        }
+                      },
+                      [_vm._v("Deletar")]
+                    )
+                  ])
+                ]
+              }
+            }
+          ])
+        })
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaVeiculos.vue?vue&type=template&id=036691e8&scoped=true&":
 /*!*************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ListaVeiculos.vue?vue&type=template&id=036691e8&scoped=true& ***!
@@ -40352,6 +41170,234 @@ var render = function() {
       ],
       1
     )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ReservaFormulario.vue?vue&type=template&id=c97c3e22&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ReservaFormulario.vue?vue&type=template&id=c97c3e22&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* binding */ render,
+/* harmony export */   "staticRenderFns": () => /* binding */ staticRenderFns
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-md-6" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "" } }, [_vm._v("Data de entrega")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.data_inicio,
+              expression: "data_inicio"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "date",
+            placeholder: "",
+            "aria-describedby": "helpId"
+          },
+          domProps: { value: _vm.data_inicio },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.data_inicio = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-6" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "" } }, [_vm._v("Data de devolução")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.data_fim,
+              expression: "data_fim"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "date",
+            placeholder: "",
+            "aria-describedby": "helpId"
+          },
+          domProps: { value: _vm.data_fim },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.data_fim = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-6" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "" } }, [_vm._v("Usuário")]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.reserva.usuario_id,
+                expression: "reserva.usuario_id"
+              }
+            ],
+            staticClass: "form-control",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.reserva,
+                  "usuario_id",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              }
+            }
+          },
+          [
+            _vm.data_inicio.length < 10 || _vm.data_fim.length < 10
+              ? _c("option", { attrs: { value: "0" } }, [
+                  _vm._v("Informe as datas")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._l(_vm.usuarios, function(item, index) {
+              return _c(
+                "option",
+                { key: index, domProps: { value: item.id } },
+                [_vm._v(_vm._s(item.nome))]
+              )
+            })
+          ],
+          2
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-6" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "" } }, [_vm._v("Veículo")]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.reserva.veiculo_id,
+                expression: "reserva.veiculo_id"
+              }
+            ],
+            staticClass: "form-control",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.reserva,
+                  "veiculo_id",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              }
+            }
+          },
+          [
+            _vm.data_inicio.length < 10 || _vm.data_fim.length < 10
+              ? _c("option", { attrs: { value: "0" } }, [
+                  _vm._v("Informe as datas")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._l(_vm.veiculos, function(item, index) {
+              return _c(
+                "option",
+                { key: index, domProps: { value: item.id } },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(item.marca) +
+                      " " +
+                      _vm._s(item.modelo) +
+                      " " +
+                      _vm._s(item.ano) +
+                      "\n                "
+                  )
+                ]
+              )
+            })
+          ],
+          2
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-xs-12 col-sm-12 col-md-12 text-center" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { type: "button", disabled: _vm.desabilitado },
+          on: { click: _vm.salvar }
+        },
+        [_vm._v("Salvar")]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-danger",
+          attrs: { href: "/reservas", role: "button" }
+        },
+        [_vm._v("Cancelar")]
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -52571,6 +53617,9 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
 Vue.component('custom-table', __webpack_require__(/*! ./components/CustomTable.vue */ "./resources/js/components/CustomTable.vue").default);
 Vue.component('lista-veiculos', __webpack_require__(/*! ./components/ListaVeiculos.vue */ "./resources/js/components/ListaVeiculos.vue").default);
+Vue.component('lista-usuarios', __webpack_require__(/*! ./components/ListaUsuarios.vue */ "./resources/js/components/ListaUsuarios.vue").default);
+Vue.component('lista-reservas', __webpack_require__(/*! ./components/ListaReservas.vue */ "./resources/js/components/ListaReservas.vue").default);
+Vue.component('reservas-formulario', __webpack_require__(/*! ./components/ReservaFormulario.vue */ "./resources/js/components/ReservaFormulario.vue").default);
 var app = new Vue({
   el: '#app'
 });

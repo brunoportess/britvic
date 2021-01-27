@@ -19,3 +19,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('/veiculos', [\App\Http\Controllers\Api\VeiculosController::class, 'listar']);
 Route::delete('/veiculos/{id}', [\App\Http\Controllers\Api\VeiculosController::class, 'deletar']);
+Route::get('/veiculos-disponiveis/{inicio}/{fim}', [\App\Http\Controllers\Api\VeiculosController::class, 'listarDisponiveis']);
+
+Route::get('/reservas', [\App\Http\Controllers\Api\VeiculosReservasController::class, 'listar']);
+Route::post('/reservas', [\App\Http\Controllers\Api\VeiculosReservasController::class, 'salvar']);
+Route::delete('/reservas/{id}', [\App\Http\Controllers\Api\VeiculosReservasController::class, 'deletar']);
+
+Route::get('/usuarios', [\App\Http\Controllers\Api\UsuariosController::class, 'listar']);
+Route::delete('/usuarios/{id}', [\App\Http\Controllers\Api\UsuariosController::class, 'deletar']);

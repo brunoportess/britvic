@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Usuarios extends Model
+class Usuario extends Model
 {
     use SoftDeletes;
     use HasFactory;
+
+    protected $table = 'usuarios';
 
     protected $fillable = [
         'nome',
@@ -17,4 +19,9 @@ class Usuarios extends Model
         'ativo',
         'usuario_id'
     ];
+
+    function user()
+    {
+        return $this->hasOne(User::class, 'id', 'usuario_id');
+    }
 }

@@ -4,13 +4,29 @@
 namespace App\Repositories;
 
 
-use App\Models\Usuarios;
+use App\Models\Usuario;
 use App\Repositories\Interfaces\IUsuariosRepository;
 
 class UsuariosRepository extends BaseRepository implements IUsuariosRepository
 {
-    public function __construct(Usuarios $usuarios)
+    /**
+     * @var Usuario
+     */
+    private $usuarios;
+
+    public function __construct(Usuario $usuarios)
     {
         parent::__construct($usuarios);
+        $this->usuarios = $usuarios;
+    }
+
+    function listarComUsuario()
+    {
+        try {
+            $response = $this->usuarios->with('user')->get();
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+        return $response;
     }
 }

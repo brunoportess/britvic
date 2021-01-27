@@ -43,4 +43,9 @@ class VeiculosService implements IVeiculosService
     {
         return $this->veiculosRepository->deletar($id);
     }
+
+    function listarDisponiveis($inicio, $fim)
+    {
+        return $this->veiculosRepository->listarDisponiveis($inicio, $fim);
+    }
 }

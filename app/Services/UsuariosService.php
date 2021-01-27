@@ -4,33 +4,48 @@
 namespace App\Services;
 
 
+use App\Repositories\Interfaces\IUsuariosRepository;
 use App\Services\Interfaces\IUsuariosService;
 
 class UsuariosService implements IUsuariosService
 {
+    /**
+     * @var IUsuariosRepository
+     */
+    private $usuariosRepository;
+
+    public function __construct(IUsuariosRepository $usuariosRepository)
+    {
+        $this->usuariosRepository = $usuariosRepository;
+    }
 
     function listar()
     {
-        // TODO: Implement listar() method.
+        return $this->usuariosRepository->listar();
     }
 
     function listarPorId($id)
     {
-        // TODO: Implement listarPorId() method.
+        return $this->usuariosRepository->listarPorId($id);
     }
 
     function salvar($dados)
     {
-        // TODO: Implement salvar() method.
+        return $this->usuariosRepository->salvar($dados);
     }
 
     function atualizar($id, $dados)
     {
-        // TODO: Implement atualizar() method.
+        return $this->usuariosRepository->atualizar($id, $dados);
     }
 
     function deletar($id)
     {
-        // TODO: Implement deletar() method.
+        return $this->usuariosRepository->deletar($id);
+    }
+
+    function listarComUsuario()
+    {
+        return $this->usuariosRepository->listarComUsuario();
     }
 }

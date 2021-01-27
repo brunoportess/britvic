@@ -7,6 +7,9 @@
             </div>
         @endif
     </div>
+    <div>
+        <h1 class="h1">Veículos</h1>
+    </div>
     <div class="text-right">
         <a name="" id="" class="btn btn-primary text-right" href="/veiculos/formulario" role="button">NOVO VEÍCULO</a>
     </div>

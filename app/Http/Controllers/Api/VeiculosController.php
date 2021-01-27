@@ -30,4 +30,10 @@ class VeiculosController
         $this->veiculosService->deletar($id);
         return response()->json();
     }
+
+    public function listarDisponiveis($inicio, $fim)
+    {
+        $data = $this->veiculosService->listarDisponiveis($inicio, $fim);
+        return response()->json($data);
+    }
 }

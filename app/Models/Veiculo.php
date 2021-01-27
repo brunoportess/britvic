@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Veiculos extends Model
+class Veiculo extends Model
 {
     use SoftDeletes;
     use HasFactory;
@@ -19,4 +19,9 @@ class Veiculos extends Model
         'ativo',
         'usuario_id'
     ];
+
+    function reservas()
+    {
+        return $this->hasMany(VeiculoReserva::class, 'veiculo_id', 'id');
+    }
 }
