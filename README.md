@@ -25,6 +25,11 @@ php artisan serve --port=9090
 Os comandos acima irão instalar as dependências necessárias, criar as tabelas no banco de dados e executar o projeto em http://localhost:9090
 
 
+## Regras de negócio
+- Ao tentar remover um veículo é verificado se possui reserva, caso sim, ele é desativado e não removido.
+- Ao efetuar uma reserva deve-se informar primeiramente data início e fim para que seja feito uma busca de veículos que estejam disponíveis de acordo com o período informado
+
+
 ## Observações de estrutura
 - Foi utilizado o padrão Repository partner;
 - As telas de listar relatório, veiculos, usuários e reservas foram feitas usando vueJS e consomem métodos das controllers de API dentro de app\Http\Controllers\Api;
@@ -35,3 +40,4 @@ Os comandos acima irão instalar as dependências necessárias, criar as tabelas
 - O log é disparado pelo evento de CREATED da model, utilizando Trait.
 
 PS: Não sei se foi a intenção, mas na parte de que um veículo só poderia ser reservado para uma pessoa por vez, implementei data de entrada/saída como esses sites de locadora de veículo, possibilitando outra pessoa alugar o mesmo veículo contando que não conflite com a data de entrada/saída de outra pessoa que já alugou o veículo anteriormente, onde o mesmo não é exibido no SELECT da reserva caso as datas sejam conflitantes
+
