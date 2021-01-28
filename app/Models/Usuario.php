@@ -22,6 +22,6 @@ class Usuario extends Model
 
     function user()
     {
-        return $this->hasOne(User::class, 'id', 'usuario_id');
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
 }

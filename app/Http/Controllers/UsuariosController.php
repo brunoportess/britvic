@@ -42,7 +42,7 @@ class UsuariosController
                 })]
         ]);
         $dados = $request->all();
-        $dados['usuario_id'] = auth()->user()->id;
+        $dados['user_id'] = auth()->user()->id;
         $this->usuariosService->salvar($dados);
         return Redirect::route('usuarios-index')->with('success','Usuário adicionado com sucesso!');
     }

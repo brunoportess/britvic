@@ -44,7 +44,7 @@ class VeiculosController
                 })]
         ]);
         $dados = $request->all();
-        $dados['usuario_id'] = auth()->user()->id;
+        $dados['user_id'] = auth()->user()->id;
         $this->veiculosService->salvar($dados);
         return Redirect::route('veiculos-index')->with('success','Veículo adicionado com sucesso!');
     }
