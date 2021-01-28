@@ -30,7 +30,7 @@ class VeiculosRepository extends BaseRepository implements IVeiculosRepository
             OR  (data_inicio <= '{$fim}' AND data_fim >= '{$fim}')
             OR  (data_inicio >= '{$inicio}' AND data_fim <= '{$fim}')
             )");
-            })->get();
+            })->where('ativo', '=', 1)->get();
         } catch (\Exception $e) {
             throw new \Exception($e);
         }
@@ -45,6 +45,15 @@ class VeiculosRepository extends BaseRepository implements IVeiculosRepository
             return $this->veiculos->with(['reservas' => function ($reserva) use ($dataInicio, $dataFim) {
                 $reserva->where('data_inicio', '>=', $dataInicio)->where('data_fim', '<=', $dataFim);
             }])->where('id', '=', $veiculo)->get();
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    function veiculoComReserva($id)
+    {
+        try {
+            return $this->veiculos->whereHas('reservas')->where('id', '=', $id)->first();
         } catch (\Exception $e) {
             throw new \Exception($e);
         }

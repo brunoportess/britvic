@@ -41307,15 +41307,23 @@ var render = function() {
               fn: function(ref) {
                 var row = ref.row
                 return [
-                  _c("td", [_vm._v(_vm._s(row.marca))]),
+                  _c("td", { class: { "text-danger": row.ativo === 0 } }, [
+                    _vm._v(_vm._s(row.marca))
+                  ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.modelo))]),
+                  _c("td", { class: { "text-danger": row.ativo === 0 } }, [
+                    _vm._v(_vm._s(row.modelo))
+                  ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.ano))]),
+                  _c("td", { class: { "text-danger": row.ativo === 0 } }, [
+                    _vm._v(_vm._s(row.ano))
+                  ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.placa))]),
+                  _c("td", { class: { "text-danger": row.ativo === 0 } }, [
+                    _vm._v(_vm._s(row.placa))
+                  ]),
                   _vm._v(" "),
-                  _c("td", [
+                  _c("td", { class: { "text-danger": row.ativo === 0 } }, [
                     _vm._v(
                       _vm._s(
                         row.created_at
@@ -41327,7 +41335,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("td", [
+                  _c("td", { class: { "text-danger": row.ativo === 0 } }, [
                     _c(
                       "a",
                       {
@@ -41337,18 +41345,20 @@ var render = function() {
                       [_vm._v("Editar")]
                     ),
                     _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-danger",
-                        on: {
-                          click: function($event) {
-                            return _vm.remover(row.id)
-                          }
-                        }
-                      },
-                      [_vm._v("Deletar")]
-                    )
+                    row.ativo === 1
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-danger",
+                            on: {
+                              click: function($event) {
+                                return _vm.remover(row.id)
+                              }
+                            }
+                          },
+                          [_vm._v("Deletar")]
+                        )
+                      : _vm._e()
                   ])
                 ]
               }

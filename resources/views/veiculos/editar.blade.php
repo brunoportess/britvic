@@ -62,6 +62,15 @@
                     <small id="helpId" class="text-muted">Formato: AAA-9999</small>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Status</label>
+                    <select class="form-control" name="ativo" id="">
+                        <option value="1" {{$item->ativo == 1 ? 'selected' : ''}}>ATIVO</option>
+                        <option value="0" {{$item->ativo == 0 ? 'selected' : ''}}>INATIVO</option>
+                    </select>
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Atualizar</button>
                 <a  class="btn btn-danger" href="/veiculos" role="button">Cancelar</a>

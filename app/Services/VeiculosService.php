@@ -42,7 +42,17 @@ class VeiculosService implements IVeiculosService
 
     function deletar($id)
     {
-        return $this->veiculosRepository->deletar($id);
+        // VERIFICA SE O VEICULO TEM RESERVA
+        $reserva = $this->veiculosRepository->veiculoComReserva($id);
+        // SE O VEICULO TIVER RESERVA ELE SERA DESATIVADO E NAO EXCLUIDO
+        if($reserva)
+        {
+            return $this->veiculosRepository->atualizar($id, ['ativo' => 0]);
+        }
+        else
+        {
+            return $this->veiculosRepository->deletar($id);
+        }
     }
 
     function listarDisponiveis($inicio, $fim)

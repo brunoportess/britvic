@@ -13,14 +13,14 @@
                 :search="filtro"
                 :itemsPerPage="10">
                 <template #row="{ row }">
-                    <td>{{ row.marca }}</td>
-                    <td>{{ row.modelo}}</td>
-                    <td>{{ row.ano}}</td>
-                    <td>{{ row.placa}}</td>
-                    <td>{{ row.created_at.slice(0,10).split('-').reverse().join('/')}}</td>
-                    <td>
+                    <td :class="{'text-danger' :row.ativo === 0}">{{ row.marca }}</td>
+                    <td :class="{'text-danger' :row.ativo === 0}">{{ row.modelo}}</td>
+                    <td :class="{'text-danger' :row.ativo === 0}">{{ row.ano}}</td>
+                    <td :class="{'text-danger' :row.ativo === 0}">{{ row.placa}}</td>
+                    <td :class="{'text-danger' :row.ativo === 0}">{{ row.created_at.slice(0,10).split('-').reverse().join('/')}}</td>
+                    <td :class="{'text-danger' :row.ativo === 0}">
                         <a class="btn btn-primary" :href="'/veiculos/'+row.id">Editar</a>
-                        <a class="btn btn-danger" @click="remover(row.id)">Deletar</a>
+                        <a v-if="row.ativo === 1" class="btn btn-danger" @click="remover(row.id)">Deletar</a>
                     </td>
                 </template>
             </custom-table>

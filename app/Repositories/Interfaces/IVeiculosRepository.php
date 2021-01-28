@@ -9,4 +9,5 @@ interface IVeiculosRepository extends IBaseRepository
 {
     function listarDisponiveis($inicio, $fim);
     function relatorioVeiculo($veiculo, $mes);
+    function veiculoComReserva($id);
 }
