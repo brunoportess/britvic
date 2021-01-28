@@ -1,4 +1,6 @@
 ## Passo a passo
+OBS: Todos os comandos a serem executados devem ser feitos dentro da pasta do projeto
+
 - Renomeie o arquivo .env.example para .env
 - Verifique as variáveis de banco de dados
 - Crie o banco de dados com o nome informado na variável
@@ -7,64 +9,30 @@
 composer install
 npm install
 npm run prod
+php artisan queue:table
 php artisan migrate
-php artisan serve --port=9090
 ```
-Os comandos acima irão instalar as dependências necessárias, criar as tabelas no banco de dados e executar o projeto em http://localhost:9090
+
 
 Para alimentar o banco de dados com dados fictícios execute o comando a seguir
 ```
 php artisan db:seed
 ```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Para executar o projeto, execute o seguinte comando
+```
+php artisan serve --port=9090
+```
+Os comandos acima irão instalar as dependências necessárias, criar as tabelas no banco de dados e executar o projeto em http://localhost:9090
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Observações de estrutura
+- Foi utilizado o padrão Repository partner;
+- As telas de listar relatório, veiculos, usuários e reservas foram feitas usando vueJS e consomem métodos das controllers de API dentro de app\Http\Controllers\Api;
+- A tela de criar e editar uma reserva também foi feita em vueJs e consome os métodos das controller de Api como citado anteriormente;
+- A tabela é um componente próprio com funções básicas de páginação, busca e ordenação;
+- Para validação de campos foi utilizado o recurso VALIDATE do laravel;
+- Para evitar repetição de código e reaproveitamento de função foi criado as classes BaseService e BaseRepository que contemplam os métodos básicos de CRUD, sendo sobrescritos somente quando necessário;
+- O log é disparado pelo evento de CREATED da model, utilizando Trait.
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+PS: Não sei se foi a intenção, mas na parte de que um veículo só poderia ser reservado para uma pessoa por vez, implementei data de entrada/saída como esses sites de locadora de veículo, possibilitando outra pessoa alugar o mesmo veículo contando que não conflite com a data de entrada/saída de outra pessoa que já alugou o veículo anteriormente, onde o mesmo não é exibido no SELECT da reserva caso as datas sejam conflitantes

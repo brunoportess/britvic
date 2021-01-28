@@ -1,0 +1,16 @@
+@extends('template.Layout')
+@section('content')
+    <div class="mb-3">
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
+    </div>
+    <div>
+        <h1 class="h1">Relatório de reserva por veículo</h1>
+    </div>
+    <div>
+        <relatorio />
+    </div>
+@endsection

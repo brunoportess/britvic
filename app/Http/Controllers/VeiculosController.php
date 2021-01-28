@@ -77,4 +77,9 @@ class VeiculosController
         $this->veiculosService->deletar($id);
         return Redirect::route('veiculos-index')->with('success','Veículo deletado com sucesso!');
     }
+
+    public function relatorioVeiculo()
+    {
+        return view('veiculos.relatorio');
+    }
 }

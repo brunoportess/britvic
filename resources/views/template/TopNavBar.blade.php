@@ -6,6 +6,7 @@
         <a class="py-2 d-none d-md-inline-block menu-link" href="/veiculos">Veículos</a>
         <a class="py-2 d-none d-md-inline-block menu-link" href="/usuarios">Usuários</a>
         <a class="py-2 d-none d-md-inline-block menu-link" href="/reservas">Reservas</a>
+        <a class="py-2 d-none d-md-inline-block menu-link" href="/relatorio">Relatório veículo/reserva</a>
     </div>
     <div class="d=flex align-self-center">
         <!-- Authentication -->

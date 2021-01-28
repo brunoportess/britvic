@@ -11,6 +11,10 @@
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        <div class="my-3 small">
+            Usuario: usuario1@usuario1.com <br>
+            Senha: 123@Teste
+        </div>
 
         <form method="POST" action="{{ route('login') }}">
             @csrf

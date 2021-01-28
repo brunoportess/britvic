@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/veiculos/{id}', [\App\Http\Controllers\VeiculosController::class, 'atualizar'])->name('veiculos-atualizar');
     Route::get('/veiculos/{id}', [\App\Http\Controllers\VeiculosController::class, 'editar'])->name('veiculos-editar');
     Route::delete('/veiculos/{id}', [\App\Http\Controllers\VeiculosController::class, 'deletar'])->name('veiculos-deletar');
+    Route::get('/relatorio', [\App\Http\Controllers\VeiculosController::class, 'relatorioVeiculo'])->name('veiculos-relatorio');
 
     Route::get('/reservas', [\App\Http\Controllers\VeiculosReservasController::class, 'index'])->name('reservas-index');
     Route::get('/reservas/formulario', [\App\Http\Controllers\VeiculosReservasController::class, 'criar'])->name('reservas-criar');

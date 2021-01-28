@@ -36,4 +36,10 @@ class VeiculosController
         $data = $this->veiculosService->listarDisponiveis($inicio, $fim);
         return response()->json($data);
     }
+
+    public function relatorioVeiculo($veiculo, $mes)
+    {
+        $data = $this->veiculosService->relatorioVeiculo($veiculo, $mes);
+        return response()->json($data);
+    }
 }

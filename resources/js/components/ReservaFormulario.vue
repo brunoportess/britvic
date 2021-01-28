@@ -121,11 +121,21 @@ export default {
             dados.usuario_id = parseInt(dados.usuario_id)
             dados.veiculo_id = parseInt(dados.veiculo_id)
             console.log(dados)
-            axios.post('/api/reservas', dados).then(response => {
-                window.location.replace("/reservas");
-            }).catch(error => {
-                console.error(error)
-            })
+            // VERIFICA SE DEVE ATUALIZAR OU CRIAR UM NOVO
+            if('id' in dados) {
+                axios.put(`/api/reservas/${dados.id}`, dados).then(response => {
+                    window.location.replace("/reservas");
+                }).catch(error => {
+                    console.error(error)
+                })
+            } else {
+                axios.post('/api/reservas', dados).then(response => {
+                    window.location.replace("/reservas");
+                }).catch(error => {
+                    console.error(error)
+                })
+            }
+
         }
     }
 }
