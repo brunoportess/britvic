@@ -20,11 +20,11 @@ class CreateVeiculosTable extends Migration
             $table->char('ano', 4);
             $table->char('placa', 8);
             $table->tinyInteger('ativo')->default(1);
-            $table->bigInteger('usuario_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
             $table->unique(['deleted_at', 'placa'], 'unique_placa');
-            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

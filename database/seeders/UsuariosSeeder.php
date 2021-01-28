@@ -17,9 +17,9 @@ class UsuariosSeeder extends Seeder
     {
         $datetime = Carbon::now();
         DB::table('usuarios')->insert([
-            ['nome' => 'Bruno Assis', 'cpf' => '985.658.998-98', 'created_at' => $datetime, 'updated_at' => $datetime],
-            ['nome' => 'Julia Alves', 'cpf' => '415.523.698-99', 'created_at' => $datetime, 'updated_at' => $datetime],
-            ['nome' => 'Marina Souza', 'cpf' => '587.965.125-99', 'created_at' => $datetime, 'updated_at' => $datetime]
+            ['nome' => 'Bruno Assis', 'cpf' => '985.658.998-98', 'user_id' => 1, 'created_at' => $datetime, 'updated_at' => $datetime],
+            ['nome' => 'Julia Alves', 'cpf' => '415.523.698-99', 'user_id' => 1, 'created_at' => $datetime, 'updated_at' => $datetime],
+            ['nome' => 'Marina Souza', 'cpf' => '587.965.125-99', 'user_id' => 1, 'created_at' => $datetime, 'updated_at' => $datetime]
         ]);
     }
 }

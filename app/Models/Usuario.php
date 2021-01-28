@@ -17,7 +17,7 @@ class Usuario extends Model
         'nome',
         'cpf',
         'ativo',
-        'usuario_id'
+        'user_id'
     ];
 
     function user()

@@ -9,7 +9,6 @@ OBS: Todos os comandos a serem executados devem ser feitos dentro da pasta do pr
 composer install
 npm install
 npm run prod
-php artisan queue:table
 php artisan migrate
 ```
 

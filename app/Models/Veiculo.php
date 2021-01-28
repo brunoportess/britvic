@@ -17,7 +17,7 @@ class Veiculo extends Model
         'ano',
         'placa',
         'ativo',
-        'usuario_id'
+        'user_id'
     ];
 
     function reservas()

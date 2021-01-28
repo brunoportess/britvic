@@ -18,9 +18,9 @@ class VeiculosSeeder extends Seeder
     {
         $datetime = Carbon::now();
         DB::table('veiculos')->insert([
-            ['marca' => 'Chevrolet', 'modelo' => 'Onix', 'ano' => '2020', 'placa' => 'HAV-9587', 'created_at' => $datetime, 'updated_at' => $datetime],
-            ['marca' => 'Honda', 'modelo' => 'Fit', 'ano' => '2015', 'placa' => 'BAS-1458', 'created_at' => $datetime, 'updated_at' => $datetime],
-            ['marca' => 'Ford', 'modelo' => 'Ka', 'ano' => '2019', 'placa' => 'BFD-6932', 'created_at' => $datetime, 'updated_at' => $datetime]
+            ['marca' => 'Chevrolet', 'modelo' => 'Onix', 'ano' => '2020', 'placa' => 'HAV-9587', 'user_id' => 1, 'created_at' => $datetime, 'updated_at' => $datetime],
+            ['marca' => 'Honda', 'modelo' => 'Fit', 'ano' => '2015', 'placa' => 'BAS-1458', 'user_id' => 1, 'created_at' => $datetime, 'updated_at' => $datetime],
+            ['marca' => 'Ford', 'modelo' => 'Ka', 'ano' => '2019', 'placa' => 'BFD-6932', 'user_id' => 1, 'created_at' => $datetime, 'updated_at' => $datetime]
         ]);
     }
 }

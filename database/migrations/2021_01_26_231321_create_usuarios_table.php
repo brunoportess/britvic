@@ -17,12 +17,12 @@ class CreateUsuariosTable extends Migration
             $table->id();
             $table->string('nome', 100);
             $table->string('cpf', 14);
-            $table->bigInteger('usuario_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->tinyInteger('ativo')->default(1);
             $table->softDeletes();
             $table->unique(['deleted_at', 'cpf'], 'unique_usuario');
             $table->timestamps();
-            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
