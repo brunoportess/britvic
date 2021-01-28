@@ -3,7 +3,7 @@ OBS: Todos os comandos a serem executados devem ser feitos dentro da pasta do pr
 
 - Renomeie o arquivo .env.example para .env
 - Verifique as variáveis de banco de dados
-- Crie o banco de dados com o nome informado na variável
+- Crie o banco de dados com o nome informado na variável DB_DATABASE
 - Execute os comandos a seguir
 ```
 composer install
