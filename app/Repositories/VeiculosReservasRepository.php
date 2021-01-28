@@ -14,12 +14,20 @@ class VeiculosReservasRepository extends BaseRepository implements IVeiculosRese
      */
     private $veiculoReserva;
 
+    /**
+     * VeiculosReservasRepository constructor.
+     * @param VeiculoReserva $veiculoReserva
+     */
     public function __construct(VeiculoReserva $veiculoReserva)
     {
         parent::__construct($veiculoReserva);
         $this->veiculoReserva = $veiculoReserva;
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection
+     * @throws \Exception
+     */
     public function listar()
     {
         try {

@@ -20,6 +20,9 @@ class Veiculo extends Model
         'user_id'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     function reservas()
     {
         return $this->hasMany(VeiculoReserva::class, 'veiculo_id', 'id');

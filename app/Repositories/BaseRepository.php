@@ -14,11 +14,19 @@ class BaseRepository implements IBaseRepository
      */
     private $model;
 
+    /**
+     * BaseRepository constructor.
+     * @param Model $model
+     */
     public function __construct(Model $model)
     {
         $this->model = $model;
     }
 
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
     function listar()
     {
         try {
@@ -29,6 +37,11 @@ class BaseRepository implements IBaseRepository
         return $response;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     * @throws \Exception
+     */
     function listarPorId($id)
     {
         try {
@@ -39,6 +52,11 @@ class BaseRepository implements IBaseRepository
         return $response;
     }
 
+    /**
+     * @param $dados
+     * @return mixed
+     * @throws \Exception
+     */
     function salvar($dados)
     {
         try {
@@ -49,6 +67,12 @@ class BaseRepository implements IBaseRepository
 
     }
 
+    /**
+     * @param $id
+     * @param $dados
+     * @return mixed
+     * @throws \Exception
+     */
     function atualizar($id, $dados)
     {
         try {
@@ -61,6 +85,10 @@ class BaseRepository implements IBaseRepository
         return $response;
     }
 
+    /**
+     * @param $id
+     * @throws \Exception
+     */
     function deletar($id)
     {
         try {

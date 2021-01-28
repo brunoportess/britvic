@@ -14,12 +14,20 @@ class UsuariosRepository extends BaseRepository implements IUsuariosRepository
      */
     private $usuarios;
 
+    /**
+     * UsuariosRepository constructor.
+     * @param Usuario $usuarios
+     */
     public function __construct(Usuario $usuarios)
     {
         parent::__construct($usuarios);
         $this->usuarios = $usuarios;
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection
+     * @throws \Exception
+     */
     function listarComUsuario()
     {
         try {

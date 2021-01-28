@@ -15,16 +15,26 @@ class VeiculosRepository extends BaseRepository implements IVeiculosRepository
      */
     private $veiculos;
 
+    /**
+     * VeiculosRepository constructor.
+     * @param Veiculo $veiculos
+     */
     public function __construct(Veiculo $veiculos)
     {
         parent::__construct($veiculos);
         $this->veiculos = $veiculos;
     }
 
+    /**
+     * @param $inicio
+     * @param $fim
+     * @return mixed
+     * @throws \Exception
+     */
     function listarDisponiveis($inicio, $fim)
     {
         try {
-            // VERIFICA SE A DATA DE INICIO OU FIM DE LOCAÇÃO SELECIONADA O VEICULO NAO ESTEJA ALUGADO PARA OUTRO USUARIO
+            // VERIFICA SE A DATA DE INICIO OU FIM DE LOCAÇÃO SELECIONADA, O VEICULO NAO ESTEJA ALUGADO PARA OUTRO USUARIO
             return $this->veiculos->whereDoesntHave('reservas', function (Builder $reserva) use ($inicio, $fim) {
                 $reserva->whereRaw("((data_inicio <= '{$inicio}' AND data_fim >= '{$inicio}')
             OR  (data_inicio <= '{$fim}' AND data_fim >= '{$fim}')
@@ -37,8 +47,15 @@ class VeiculosRepository extends BaseRepository implements IVeiculosRepository
 
     }
 
+    /**
+     * @param $veiculo
+     * @param $mes
+     * @return Builder[]|\Illuminate\Database\Eloquent\Collection
+     * @throws \Exception
+     */
     function relatorioVeiculo($veiculo, $mes)
     {
+        // PEGA DIA INICIO/FIM DO MES INFORMADO
         $dataInicio = $mes.'-01';
         $dataFim = $mes.'-31';
         try {
@@ -50,9 +67,15 @@ class VeiculosRepository extends BaseRepository implements IVeiculosRepository
         }
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     * @throws \Exception
+     */
     function veiculoComReserva($id)
     {
         try {
+            // RETORNA SOMENTE SE O VEICULO POSSUIR RESERVA
             return $this->veiculos->whereHas('reservas')->where('id', '=', $id)->first();
         } catch (\Exception $e) {
             throw new \Exception($e);

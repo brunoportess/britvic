@@ -19,11 +19,17 @@ class VeiculoReserva extends Model
         'data_fim'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     function veiculo()
     {
         return $this->belongsTo(Veiculo::class, 'veiculo_id', 'id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     function usuario()
     {
         return $this->belongsTo(Usuario::class, 'usuario_id', 'id');

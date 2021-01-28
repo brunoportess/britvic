@@ -16,17 +16,28 @@ class VeiculosReservasController
      */
     private $reservasService;
 
+    /**
+     * VeiculosReservasController constructor.
+     * @param IVeiculosReservasService $reservasService
+     */
     public function __construct(IVeiculosReservasService $reservasService)
     {
         $this->reservasService = $reservasService;
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function listar()
     {
         $data = $this->reservasService->listar();
         return response()->json($data);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function salvar(Request $request)
     {
         $request->validate([
@@ -40,6 +51,11 @@ class VeiculosReservasController
         return response()->json($response);
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function atualizar($id, Request $request)
     {
         // CUSTOMIZACAO NA REGRA DE PLACA PARA NAO ACUSAR ERRO NA PLACA DO PROPRIO VEICULO
@@ -54,6 +70,10 @@ class VeiculosReservasController
         return response()->json($response);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function deletar($id)
     {
         $this->reservasService->deletar($id);

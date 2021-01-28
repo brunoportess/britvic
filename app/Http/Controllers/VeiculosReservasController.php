@@ -17,22 +17,35 @@ class VeiculosReservasController
      */
     private $reservasService;
 
+    /**
+     * VeiculosReservasController constructor.
+     * @param IVeiculosReservasService $reservasService
+     */
     public function __construct(IVeiculosReservasService $reservasService)
     {
         $this->reservasService = $reservasService;
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\View
+     */
     public function index()
     {
-        //dd(auth()->user()->id);
         return view('veiculos.reservas.index');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\View
+     */
     public function criar()
     {
         return view('veiculos.reservas.cadastrar');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function salvar(Request $request)
     {
         $request->validate([
@@ -43,15 +56,24 @@ class VeiculosReservasController
         ]);
         $dados = $request->all();
         $this->reservasService->salvar($dados);
-        Redirect::route('reservas-index')->with('success','Veículo adicionado com sucesso!');
+        return Redirect::route('reservas-index')->with('success','Veículo adicionado com sucesso!');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\View
+     */
     public function editar($id)
     {
         $item = $this->reservasService->listarPorId($id);
         return view('veiculos.reservas.editar', compact('item'));
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function atualizar($id, Request $request)
     {
         // CUSTOMIZACAO NA REGRA DE PLACA PARA NAO ACUSAR ERRO NA PLACA DO PROPRIO VEICULO
@@ -63,12 +85,16 @@ class VeiculosReservasController
         ]);
         $dados = $request->all();
         $this->reservasService->atualizar($id, $dados);
-        Redirect::route('reservas-index')->with('success','Veículo atualizado com sucesso!');
+        return Redirect::route('reservas-index')->with('success','Veículo atualizado com sucesso!');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function deletar($id)
     {
         $this->reservasService->deletar($id);
-        Redirect::route('reservas-index')->with('success','Veículo deletado com sucesso!');
+        return Redirect::route('reservas-index')->with('success','Veículo deletado com sucesso!');
     }
 }

@@ -15,10 +15,18 @@ class BaseService implements IBaseService
     private $repository;
 
 
+    /**
+     * BaseService constructor.
+     * @param IBaseRepository $repository
+     */
     public function __construct(IBaseRepository $repository){
         $this->repository = $repository;
     }
 
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
     function listar()
     {
         try {
@@ -30,6 +38,11 @@ class BaseService implements IBaseService
         return $response;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     * @throws \Exception
+     */
     function listarPorId($id)
     {
         try {
@@ -41,6 +54,11 @@ class BaseService implements IBaseService
         return $response;
     }
 
+    /**
+     * @param $dados
+     * @return mixed
+     * @throws \Exception
+     */
     function salvar($dados)
     {
         try {
@@ -52,6 +70,12 @@ class BaseService implements IBaseService
         return $response;
     }
 
+    /**
+     * @param $id
+     * @param $dados
+     * @return mixed
+     * @throws \Exception
+     */
     function atualizar($id, $dados)
     {
         try {
@@ -63,6 +87,11 @@ class BaseService implements IBaseService
         return $response;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     * @throws \Exception
+     */
     function deletar($id)
     {
         try {

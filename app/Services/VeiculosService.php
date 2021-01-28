@@ -15,31 +15,55 @@ class VeiculosService implements IVeiculosService
      */
     private $veiculosRepository;
 
+    /**
+     * VeiculosService constructor.
+     * @param IVeiculosRepository $veiculosRepository
+     */
     public function __construct(IVeiculosRepository $veiculosRepository)
     {
         $this->veiculosRepository = $veiculosRepository;
     }
 
+    /**
+     * @return mixed
+     */
     function listar()
     {
         return $this->veiculosRepository->listar();
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     function listarPorId($id)
     {
         return $this->veiculosRepository->listarPorId($id);
     }
 
+    /**
+     * @param $dados
+     * @return mixed
+     */
     function salvar($dados)
     {
         return $this->veiculosRepository->salvar($dados);
     }
 
+    /**
+     * @param $id
+     * @param $dados
+     * @return mixed
+     */
     function atualizar($id, $dados)
     {
         return $this->veiculosRepository->atualizar($id, $dados);
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     function deletar($id)
     {
         // VERIFICA SE O VEICULO TEM RESERVA
@@ -55,11 +79,22 @@ class VeiculosService implements IVeiculosService
         }
     }
 
+    /**
+     * @param $inicio
+     * @param $fim
+     * @return mixed
+     */
     function listarDisponiveis($inicio, $fim)
     {
         return $this->veiculosRepository->listarDisponiveis($inicio, $fim);
     }
 
+    /**
+     * @param $veiculo
+     * @param $mes
+     * @return array
+     * @throws \Exception
+     */
     function relatorioVeiculo($veiculo, $mes)
     {
         // INICIA VARIAVEL QUE VAI ARMAZENAR DADOS A SEREM RETORNADOS
@@ -91,6 +126,7 @@ class VeiculosService implements IVeiculosService
             for($y = new Carbon($dataInicio); $y <= new Carbon($dataFim); $y->addDay())
             {
                 $dia = $y->format('Y-m-d');
+                // VERIFICA SE O DIA PERCORRIDO NÃO ESTA ALUGADO
                 if(!array_key_exists($dia, $data))
                 {
                     $data[$dia] = ['veiculo' => "{$item['marca']} {$item['modelo']} {$item['ano']}", 'dia' => $dia, 'alugado' => 'NÃO' ];

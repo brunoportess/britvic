@@ -20,6 +20,9 @@ class Usuario extends Model
         'user_id'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');

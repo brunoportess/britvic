@@ -16,22 +16,35 @@ class UsuariosController
      */
     private $usuariosService;
 
+    /**
+     * UsuariosController constructor.
+     * @param IUsuariosService $usuariosService
+     */
     public function __construct(IUsuariosService $usuariosService)
     {
         $this->usuariosService = $usuariosService;
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\View
+     */
     public function index()
     {
-        //dd(auth()->user()->id);
         return view('usuarios.index');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\View
+     */
     public function criar()
     {
         return view('usuarios.cadastrar');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function salvar(Request $request)
     {
         $request->validate([
@@ -47,12 +60,21 @@ class UsuariosController
         return Redirect::route('usuarios-index')->with('success','Usuário adicionado com sucesso!');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\View
+     */
     public function editar($id)
     {
         $item = $this->usuariosService->listarPorId($id);
         return view('usuarios.editar', compact('item'));
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function atualizar($id, Request $request)
     {
         // CUSTOMIZACAO NA REGRA DE CPF PARA NAO ACUSAR ERRO NO CPF DO PROPRIO USUARIO
@@ -68,6 +90,10 @@ class UsuariosController
         return Redirect::route('usuarios-index')->with('success','Usuários atualizado com sucesso!');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function deletar($id)
     {
         $this->usuariosService->deletar($id);
