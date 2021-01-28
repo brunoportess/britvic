@@ -10,6 +10,7 @@ class VeiculoReserva extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use \App\Traits\VeiculoReserva;
     protected $table = 'veiculos_reservas';
     protected $fillable = [
         'veiculo_id',

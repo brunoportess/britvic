@@ -36,10 +36,10 @@ class VeiculosReservasController
     public function salvar(Request $request)
     {
         $request->validate([
-            'marca' => 'required',
-            'modelo' => 'required',
-            'ano' => 'required|max:4',
-            'placa' => 'required|max:8|unique:veiculos',
+            'usuario_id' => 'required',
+            'veiculo_id' => 'required',
+            'data_inicio' => 'required',
+            'data_fim' => 'required',
         ]);
         $dados = $request->all();
         $this->reservasService->salvar($dados);
@@ -56,13 +56,10 @@ class VeiculosReservasController
     {
         // CUSTOMIZACAO NA REGRA DE PLACA PARA NAO ACUSAR ERRO NA PLACA DO PROPRIO VEICULO
         $request->validate([
-            'marca' => 'required',
-            'modelo' => 'required',
-            'ano' => 'required|max:4',
-            'placa' => ['required', 'max:8',
-                    Rule::unique('veiculos')->where(function ($query) use ($id, $request) {
-                        $query->whereNull('deleted_at')->where('id', '!=', $id)->where('placa', '=', $request->placa);
-                    })]
+            'usuario_id' => 'required',
+            'veiculo_id' => 'required',
+            'data_inicio' => 'required',
+            'data_fim' => 'required',
         ]);
         $dados = $request->all();
         $this->reservasService->atualizar($id, $dados);
