@@ -29,6 +29,8 @@ Os comandos acima irão instalar as dependências necessárias, criar as tabelas
 - Ao tentar remover um veículo é verificado se possui reserva, caso sim, ele é desativado e não removido.
 - Ao efetuar uma reserva deve-se informar primeiramente data início e fim para que seja feito uma busca de veículos que estejam disponíveis de acordo com o período informado
 
+OBS: Não foi utilizado função de validação de CPF no cadastro do usuário para facilitar os testes
+
 
 ## Observações de estrutura
 - Foi utilizado o padrão Repository partner;

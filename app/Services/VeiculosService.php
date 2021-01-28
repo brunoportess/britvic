@@ -65,8 +65,8 @@ class VeiculosService implements IVeiculosService
         // INICIA VARIAVEL QUE VAI ARMAZENAR DADOS A SEREM RETORNADOS
         $data = [];
         // VARIAVEIS QUE POSSUEM INICIO E FIM DO MES
-        $dataInicio = \Carbon\Carbon::now()->firstOfMonth()->toDateString();
-        $dataFim = \Carbon\Carbon::now()->endOfMonth()->toDateString();
+        $dataInicio = (new Carbon($mes.'-01'))->firstOfMonth()->toDateString();
+        $dataFim = (new Carbon($mes.'-01'))->endOfMonth()->toDateString();
         // BUSCA OS DADOS DE ACORDO COM O FILTRO
         $response = $this->veiculosRepository->relatorioVeiculo($veiculo, $mes);
 
